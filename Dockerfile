@@ -1,4 +1,4 @@
-FROM golang:1.5.0
+FROM golang:1.6.0
 
 # Install the GeoIP C library.
 RUN apt-get update \
@@ -29,3 +29,4 @@ RUN go get github.com/abh/geodns \
 RUN mkdir /dns
 WORKDIR $GOPATH/src/github.com/abh/geodns
 CMD ./geodns -config="/dns"
+VOLUME /dns
